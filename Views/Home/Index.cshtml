@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1>Cobro Total De Pagos</h1>
+    <form method="post" asp-action="Pago" asp-controller="Home">
+  <div class="form-group">
+    <label for="numeroTarjeta">Número de tarjeta</label>
+    <input type="text" class="form-control" name="numTarj" placeholder="Ingrese el número de su tarjeta">
+  </div>
+  <div class="form-group">
+    <label for="fechaVencimiento">Fecha de vencimiento De Pago</label>
+    <input type="date" class="form-control" name="fechaVenc">
+  </div>
+  <div class="form-group">
+    <label for="montoPagar">Monto Sin Mora a Pagar</label>
+    <input type="number" class="form-control" name="montoPagar" placeholder="Ingrese el monto inicial a pagar">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary">Ingresar</button>
+  <br>
+</form>
+
+<div class="container">
+  <h2>Pago Total a realizar</h2>
+  <p>Pago Inicial De Monto: @ViewBag.MontoPagar</p>
+  <p>Dias Totales de Mora: @ViewBag.diasAtraso</p>
+  <p>Cobro total de Mora: @ViewBag.Mora</p>
+  <p>Pago Total Final: @ViewBag.PagoFinal</p>
+</div>
